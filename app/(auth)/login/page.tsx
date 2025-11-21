@@ -31,8 +31,8 @@ export default function LoginPage() {
         setError('Invalid email or password');
         setIsLoading(false);
       } else if (result?.ok) {
-        router.push('/vehicles');
-        router.refresh();
+        // Use window.location for more reliable redirect
+        window.location.href = '/vehicles';
       } else {
         setError('An unexpected error occurred');
         setIsLoading(false);
