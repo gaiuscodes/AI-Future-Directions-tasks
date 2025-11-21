@@ -17,8 +17,8 @@ export async function GET(request: NextRequest) {
       sacco: searchParams.get('sacco') || undefined,
       plate: searchParams.get('plate') || undefined,
       minRating: searchParams.get('minRating') || undefined,
-      limit: searchParams.get('limit') || undefined,
-      offset: searchParams.get('offset') || undefined,
+      limit: searchParams.get('limit') ? parseInt(searchParams.get('limit')!) : undefined,
+      offset: searchParams.get('offset') ? parseInt(searchParams.get('offset')!) : undefined,
     };
 
     const result = await getVehicles(filters);
